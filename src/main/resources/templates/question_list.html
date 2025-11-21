@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+       @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+        html {
+          font-family: "Pretendard Variable";
+        }
+    </style>
+    <title>질문목록</title>
+</head>
+<body>
+<div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>변호</th>
+                <th>제목</th>
+                <th>작성일시</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="q:${questions}">
+                <th>[[${q.id}]]</th>
+                <td>[[${q.subject}]]</td>
+                <td>[[${q.createDate}]]</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
