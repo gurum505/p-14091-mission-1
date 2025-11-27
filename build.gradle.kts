@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.5.7"
@@ -34,8 +36,9 @@ dependencies {
     runtimeOnly("com.h2database:h2")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
     //testImplementation("org.springframework.boot:spring-boot-starter-thymeleaf-test")
-
+    implementation("org.commonmark:commonmark:0.27.0")
 }
 
 tasks.withType<Test> {
