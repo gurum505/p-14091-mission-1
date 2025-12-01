@@ -35,6 +35,8 @@ public class Question {
     @ManyToOne
     private SiteUser author;
 
+    private LocalDateTime modifyDate;
+
     public Answer addAnswer(String s) {
         Answer answer = new Answer();
         answer.setContent(s);
