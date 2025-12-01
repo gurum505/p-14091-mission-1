@@ -5,14 +5,15 @@
         <thead class="table-dark">
             <tr>
                 <th>변호</th>
-                <th>제목</th>
+                <th style="width:50%">제목</th>
+                <th>글쓴이</th>
                 <th>작성일시</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="q,loop:${paging}">
+            <tr class="text-center" th:each="q,loop:${paging}">
                 <td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
-                <td>
+                <td class="text-start">
                     <a th:href="@{|/question/detail/${q.id}|}" th:text="${q.subject}">
                     </a>
                     <span class="text-danger small ms-2"
@@ -20,6 +21,7 @@
                           th:text="${q.answers.size()}">
                     </span>
                 </td>
+                <td><span th:if="${q.author != null}" th:text="${q.author.username}"></span></td>
                 <td th:text="${#temporals.format(q.createDate, 'yyyy-MM-dd HH:mm')}"></td>
             </tr>
         </tbody>

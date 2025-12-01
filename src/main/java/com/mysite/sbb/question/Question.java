@@ -2,6 +2,7 @@ package com.mysite.sbb.question;
 
 
 import com.mysite.sbb.answer.Answer;
+import com.mysite.sbb.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,6 +31,9 @@ public class Question {
     //PERSIST는 안쓰는게 더 좋다
     @OneToMany(mappedBy = "question",cascade = {CascadeType.REMOVE,CascadeType.PERSIST} )
     private List<Answer> answers = new ArrayList<>(); // 초기화안하면 new Quest().addAnswer()에서 오류가능성
+
+    @ManyToOne
+    private SiteUser author;
 
     public Answer addAnswer(String s) {
         Answer answer = new Answer();
